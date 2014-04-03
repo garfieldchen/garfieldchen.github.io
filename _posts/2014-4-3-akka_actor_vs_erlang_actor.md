@@ -2,6 +2,7 @@
 layout: default
 title: akka actor和erlang actor的不同
 ---
+
 # akka actor和erlang actor的不同
 最近看到邓草原微博说akka做socketio测试数据，太惊讶了，也在考虑抽时间用akka+NIO写个游戏网关看看和现有erlang实现的网关的性能。这月刚换了新工作，又回来做scala了，scala还好多少知道一点，但以前我们是用的scala actor，现在改用akka actor需要重头学起，重头来过的又何止akka呢？职位不同了心态也要调整好^-^。
 
@@ -49,11 +50,11 @@ scala actor和akka actor在实现上都是基于java thread-pool做的，但线�
 
 test 1, ** starvation**
 
-![starvation](img/akka_actor_starvation.jpg)
+![starvation](../img/akka_actor_starvation.jpg)
 
 test 2, ** survive**
 
-![starvation](img/akka_actor_not_starvation.jpg)
+![starvation](../img/akka_actor_not_starvation.jpg)
 
 测试发现我机子上akka thread-pool size为 core * 3 = 4 * 3 = 12, 两次测试中一次设置全部work占满thread-pool,一个留了一个thread空闲。然后，当然就饿死了。看来程序员也要珍惜来之不易的工作，哪天僧多肉丝也难保不饿死！
 
