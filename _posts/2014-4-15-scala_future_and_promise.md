@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Note - :Scala Future and Promise
+title: Note - Scala Future and Promise
 tags: scala future promiss asynchonize
 ---
 
@@ -8,7 +8,7 @@ tags: scala future promiss asynchonize
 
 	The idea is simple, a Future is a sort of a placeholder object that you can create for a result that does not yet exist. 
 
-Future is an object holding a value which ** may ** available at some point.
+Future is an object holding a value which **may** available at some point.
 
 State: 
 
@@ -19,7 +19,7 @@ State:
 	
 - not compelted
 
-Future has an import property that it may only ** be assigned once **.
+Future has an import property that it may only **be assigned once**.
 
 - **Future[T]** is a type which denotes futrue objects.
 - **future** is a method which creates and schedules an asynchronous computation, and then return a futrue object
