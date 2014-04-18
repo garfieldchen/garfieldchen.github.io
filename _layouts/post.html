@@ -1,30 +1,42 @@
 ---
 layout: post
 ---
-<div>
-	<div id="title">
-		<h1>{{ page.title }} </h1>
-	</div>
+<html>
+  <head>
+    <link ref="stylesheet" type="text/css" href="css/post_content.css"/>
+    <link ref="stylesheet" type="text/css" href="css/nav.css"/>
+    <title>{{ page.title }}</title>
+  </head>
+  <body>
+    <div>
+      {% include nav.html %}
+      <div>
+          <div id="title">
+                  <h1>{{ page.title }} </h1>
+          </div>
 
-	<div id="content">
-	{{ content }}
-	</div> 	
+          <div id="content">
+          {{ content }}
+          </div> 	
 
-	<div id="tags">
-		Tagged:
-		{% for tag in page.tags %}
-		<a href="/blog/tag/{{tag}}">{{tag}} </a> &nbsp;
-		{% endfor %}
-	</div>
-        <div>
-          <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-          <!-- github.io.for-test -->
-          <ins class="adsbygoogle"
-                 style="display:inline-block;width:728px;height:90px"
-                      data-ad-client="ca-pub-9501555806183005"
-                           data-ad-slot="6301923174"></ins>
-                         <script>
-                           (adsbygoogle = window.adsbygoogle || []).push({});
-                         </script>
+          <div id="tags">
+                  Tagged:
+                  {% for tag in page.tags %}
+                  <a href="/blog/tag/{{tag}}">{{tag}} </a> &nbsp;
+                  {% endfor %}
+          </div>
+          <div>
+            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+            <!-- github.io.for-test -->
+            <ins class="adsbygoogle"
+                   style="display:inline-block;width:728px;height:90px"
+                        data-ad-client="ca-pub-9501555806183005"
+                             data-ad-slot="6301923174"></ins>
+                           <script>
+                             (adsbygoogle = window.adsbygoogle || []).push({});
+                           </script>
+          </div>
         </div>
-</div>
+      </div>
+  </body>
+</html>

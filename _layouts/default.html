@@ -3,23 +3,17 @@ layout: default
 ---
 <html>
 	<head>
+                <link ref="stylesheet" type="text/css" href="css/post_content.css"/>
+                <link ref="stylesheet" type="text/css" href="css/nav.css"/>
 		<title>{{page.title}}</title>
 	</head>
 
 	<body>
-		<div class="navbar">
-			<div class="navbar-inner">
-			<a class="brand" href="/index.html">Garfield Chen - Tech Footprint</a>
-			<ul class="nav">
-				<li><a href="/index.html">Home</a></li>
-				<li><a href="/about.html">About</a></li>
-				<li><a href="https://github.com/garfeildchen">My GitHub</a></li>
-			</ul>
-			</div>
-		</div>
-
-		<div class="customize">
-		{{content}}
-		</div>
+                <div>
+                  {% include nav.html %}
+                  <div class="customize">
+                  {{content}}
+                  </div>
+                </div>
 	</body>
 </html>
