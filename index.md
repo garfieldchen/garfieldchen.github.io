@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Blog Posts
+title: Garfield's Blog     
 ---
 
 {% for post in site.posts %}
