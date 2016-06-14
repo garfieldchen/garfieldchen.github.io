@@ -1,2 +1,10 @@
 encoding: utf-8
 markdown: kramdown
+
+disqus_username: garfieldchen # your disqus username
+
+google-analytics: UA-79279279-1 # add it if you have one
+
+skillstree: true
+
+permalink: none

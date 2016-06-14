@@ -30,7 +30,7 @@ Hi, 我是加菲！
 
 - MongoDB
 - MySQL
-- Mnesi
+- Mnesia
 - Redis
 
 ## Contact:    

@@ -2,6 +2,7 @@
 layout: post
 title: Note - Scala Future and Promise
 tags: scala future promiss asynchonize
+category: scala
 ---
 
 [http://docs.scala-lang.org/overviews/core/futures.html](http://docs.scala-lang.org/overviews/core/futures.html)

@@ -2,6 +2,7 @@
 layout: post
 title: 开始做一个游戏服务器框架xGame
 tags: java netty javascript xgame xGame 游戏服务器 服务器 游戏 akka mybatis webgame web game mobile game mobilegame gameserver
+category: xgame
 ---
 
 

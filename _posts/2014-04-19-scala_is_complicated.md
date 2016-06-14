@@ -2,6 +2,7 @@
 layout: post
 title: scala很复杂
 tags: scala erlang mongodb ReactiveMongo future async
+category: scala
 ---
 
 由于工作的原因前两天大概看了一下MongoDB的一个scala driver -- ReactiveMongo, 在curry/implicit/future等多个scala语言特性、异步特性的大山下，也感到很头疼。记得上次看MongoDB driver是erlang的实现，有两个，一个是官方的[mongodb-erlang](https://github.com/mongodb/mongodb-erlang) 一个是一个有record支持的[mongrel](https://code.google.com/p/mongrel)，mongodb-erlang基本上很容易懂，看完相信自己在代码质量上应该可以做到相近(85%). 感觉还好吧，应该说。

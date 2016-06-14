@@ -2,6 +2,7 @@
 layout: post
 title: 多一些规范，少一些自由
 tags: 管理 自由 规范 监管
+category: 管理
 ---
 
 还在学校时就常常听说google工作多么的自由，心向往之。至今也却没能亲见。

@@ -2,6 +2,7 @@
 layout: post
 title: akka actor和erlang actor的不同
 tags: erlang akka scala thread-pool reduation
+category: scala
 ---
 
 最近看到邓草原微博说akka做socketio测试数据，太惊讶了，也在考虑抽时间用akka+NIO写个游戏网关看看和现有erlang实现的网关的性能。这月刚换了新工作，又回来做scala了，scala还好多少知道一点，但以前我们是用的scala actor，现在改用akka actor需要重头学起，重头来过的又何止akka呢？职位不同了心态也要调整好^-^。
