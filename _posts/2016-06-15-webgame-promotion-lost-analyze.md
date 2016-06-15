@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 页游游戏推广转化率分析-技术思路
+title: 网页游戏导量的转化率分析-技术思路
 tags: xgame xGame 页游 游戏 推广 流失 转化率 webgame flash
 category: xgame
 ---
