@@ -1,7 +1,7 @@
 ---
 layout: post
 title: sl4j神奇的log实现类自动发现
-tags: xgame MicroService java classpath sl4j
+tags: java classpath sl4j logback logback-classic
 category: xgame
 ---
 
@@ -94,11 +94,13 @@ sl4j对于每个java开发者应该都不陌生，一个logger api，没有具�
 
 ## 另有玄机
 
-但是有个很奇怪的问题，bind中我们用到了，StaticLoggerBinder.getSingleton()函数，如果在sl4j-api中没有这个实现，sl4j-api本身应该是不能编译通过的，如果sl4j-api中，本身有这个实现，在我们classpath中添加具体实现时，findPossibleStaticLoggerBinderPathSet必然会发现两个StaticLoggerBinder？
+但是有个很奇怪的问题，bind中我们用到了，StaticLoggerBinder.getSingleton()函数，如果在sl4j-api中没有这个实现，sl4j-api本身应该是不能编译通过的，如果sl4j-api中，本身有这个实现，在我们classpath中添加具体实现时，findPossibleStaticLoggerBinderPathSet必然会发现2个StaticLoggerBinder？
 
-在添加logback-classic依赖的实测调试中，findPossibleStaticLoggerBinderPathSet这发现一个StaticLoggerBinder, TAT！！!
+在添加logback-classic依赖的实测调试中，findPossibleStaticLoggerBinderPathSet这发现1个StaticLoggerBinder, TAT！！!
 
-好吧，代码面前无秘密! [https://github.com/qos-ch/slf4j.git](https://github.com/qos-ch/slf4j.git)，上图：
+代码面前无秘密! 
+
+[https://github.com/qos-ch/slf4j.git](https://github.com/qos-ch/slf4j.git)
 
 图1. sl4j-api代码结构
 ![sl4j-api 源码结构]({{site.url}}/img/sl4j-api-imp-structure.png)
@@ -112,15 +114,15 @@ sl4j对于每个java开发者应该都不陌生，一个logger api，没有具�
 sl4j-api中imp就是一个幌子，逗咱玩呢！！！
 
 
-# 美丽的姑娘却曾困扰着我的青春
+# 美丽的姑娘也曾困扰着我
 
-runtime添加到classpath，就自动配置了使用的某种logger实现，非常的方便，但是在项目具体的使用中也遇到了一下问题。
+runtime添加到classpath，就自动配置了使用的某种logger实现，非常的方便，但是在项目具体的使用中也遇到过一些问题。
 
-有一次，我遇到一个非常怪异的问题，应用部署到linux上面，正常的生成了日志，测试同学在win上面运行，没有生成日志。真是活见鬼！！！
+有一次，游戏服务器部署到linux上面，正常的生成了日志文件，测试同学在win上面部署，毛都没有生成。真是活见鬼！！！
 
 原因：
 
-为了免于手动修改java运行的classpath，我们的做法是所有依赖的第三方包放到app目录的lib文件夹下，服务器运行脚本，用sh/bat自动扫描lib下面全部的jar，添加到classpath中。sl4j是一个非常流行并被广泛采用的logger lib，我们依赖的其他第三方库也依赖了sl4j，并依赖了slfj-simple，所以在lib目录下面其实是有两个可用的sl4j实现，由于os的不用，和不断的加入第三方依赖，间接依赖的sl4j-simple和项目设定的logback实现添加到classpath中的顺序是随机的。如果simple在前，就使用了sl4j-simple,所以就没有了日志文件输出。
+为了免于手动修改java运行的classpath，我们的做法是所有依赖的第三方包放到统一的一个lib文件夹下，服务器运行脚本，用sh/bat自动扫描lib下面全部的jar，添加到classpath中。sl4j是一个非常流行并被广泛采用的logger lib，我们依赖的其他第三方库也依赖了sl4j，并依赖了slfj-simple，所以在lib目录下面其实是有两个可用的sl4j实现，由于os的不用，在开发中我们不断的加入第三方依赖，间接依赖的sl4j-simple和项目设定的logback实现添加到classpath中的顺序是随机的。如果simple在前，就使用了sl4j-simple,所以就没有了日志文件输出。
 
 解法：
 
@@ -136,7 +138,7 @@ runtime添加到classpath，就自动配置了使用的某种logger实现，非�
 
 由于非常多的第三方库使用了sl4j，我们有发现很多个版本的sl4j和他的具体实现出现在lib目录，太招人爱也是烦！！！
 
-必须从依赖中排查sl4j，对必须！！！ 方法如下
+必须从依赖中排查sl4j，对，必须！！！
 
 1. Maven
 
